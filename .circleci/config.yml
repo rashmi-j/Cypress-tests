@@ -4,9 +4,9 @@ jobs:
     docker:
       - image: circleci/node:12.13.0-stretch
     steps:
-      - checkout
+      - checkout                   #checkouts to branch
       - run:
-          name: installing cypress framework
+          name: installing cypress framework      
           command: npm install cypress
 
       - run:
@@ -19,15 +19,20 @@ jobs:
 
       - run:
           name: cypress task
-          command: $(npm bin)/cypress run --spec './cypress/integration/integration-tests/sample.js' --browser chrome
+          command: |
+            npm install mocha mochawesome mochawesome-merge mochawesome-report-generator 
+            $(npm bin)/cypress run --spec './cypress/integration/integration-tests/sample.js' --browser chrome
+      - store_artifacts:
+          path: ~/sample_results  
+
       - persist_to_workspace:
           root: .
-          paths: .
+          paths: .              
   test-execution:
     docker: 
       - image: circleci/node:12.13.0-stretch
     steps:
-      - attach_workspace:
+      - attach_workspace:       #attach results of previous's: persist_to_workspace - line 23
           at: .
       - run:
           name: cypress task
