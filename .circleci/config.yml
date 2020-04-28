@@ -8,6 +8,10 @@ jobs:
       - run:
           name: installing cypress framework
           command: npm install cypress
+
+      - run:
+          name: cypress task
+          command: $(npm bin)/cypress run --spec 'cypress/integration/*' --browser chrome
       - persist_to_workspace:
           root: .
           paths: .
@@ -26,6 +30,3 @@ workflows:
   sample-test-pipeline:    
     jobs:
       - install-cypress
-      - test-execution:
-          requires:
-             - install-cypress
