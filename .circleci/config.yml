@@ -19,7 +19,7 @@ jobs:
 
       - run:
           name: cypress task
-          command: $(npm bin)/cypress run --spec 'cypress/integration/*' --browser chrome
+          command: $(npm bin)/cypress run --spec './cypress/integration/integration-tests/sample.js' --browser chrome
       - persist_to_workspace:
           root: .
           paths: .
