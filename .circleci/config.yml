@@ -8,6 +8,18 @@ jobs:
       - run:
           name: installing cypress framework
           command: npm install cypress
+      - persist_to_workspace:
+          root: .
+          paths: .
+  test-execution:
+    docker: 
+      - image: circleci/node:12.13.0-stretch
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: cypress task
+          command: node_modules/.bin/cypress run --spec 'cypress/integration/*' --browser chrome
 
 workflows:
   version: 2
