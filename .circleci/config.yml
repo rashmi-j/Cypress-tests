@@ -20,10 +20,11 @@ jobs:
       - run:
           name: cypress task
           command: |
-            npm install mocha mochawesome mochawesome-merge mochawesome-report-generator 
+            mkdir -p ~/e2e_results &&
+            npm install mocha mochawesome mochawesome-merge mochawesome-report-generator &&
             $(npm bin)/cypress run --spec './cypress/integration/integration-tests/sample.js' --browser chrome
       - store_artifacts:
-          path: ~/sample_results  
+          path: ~/e2e_results  
 
       - persist_to_workspace:
           root: .
