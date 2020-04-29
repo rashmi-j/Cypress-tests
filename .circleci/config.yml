@@ -25,9 +25,6 @@ jobs:
       - run:
           name: cypress task
           command: |
-            cd Cypress-project
-            mkdir -p ~/e2e_results &&
-            npm install mocha mochawesome mochawesome-merge mochawesome-report-generator &&
             $(npm bin)/cypress run --spec './cypress/integration/integration-tests/sample.js' --browser chrome
       - store_artifacts:
           path: ~/e2e_results  
