@@ -1,3 +1,6 @@
+# Initially,in one job we had done -  install cypress, adding dependency, installing chrome, cypress task
+# Now added new job for `adding dependency` which will not run until `install cypress` is done.
+
 version: 2.1
 jobs:
   install-cypress:
@@ -9,7 +12,7 @@ jobs:
           name: installing cypress framework      
           command: npm install cypress
   
-  add-dependency:
+  add-dependency:                 #making add-dependency as another job
     docker:
       - image: circleci/node:12.13.0-stretch
     steps:
@@ -47,6 +50,6 @@ workflows:
   install-cypress:    
     jobs:
       - install-cypress
-      - add-dependency:
+      - add-dependency:                #making add-dependency job not to run untill install cypress runs
           requires:
             - install-cypress
