@@ -13,6 +13,8 @@ export class Sample {
     signinButton = '.login__form_action_container';
     meAfterLoginin = '.nav-item__title-container';
 
+    welcome = '.header__content';
+
     footer = '.li-footer';
     //secondsection = '.feature-learning';
     secondSection = '.learning-cta__header';
@@ -36,7 +38,15 @@ export class Sample {
     sixthSectionSwitchTabs = '.switcher-tabs__placeholder-text';
     sixthSectionDropDown = ':nth-child(1) > .switcher-tabs__button';
     sixthSectionDropDowns = '.switcher-tabs__tab--active > .switcher-tabs__button';
+    
 
+
+    seventhSection = '.brand-discovery';
+    seventhSectionQuestion = '.brand-discovery__header';
+    seventhSectionAnswer = '.brand-discovery__subtitle';
+    seventhSectionFirstOption = ':nth-child(1) > .brand-discovery__button';
+    seventhSectionSecondOption = ':nth-child(2) > .brand-discovery__button';
+    seventhSectionThirdOption = ':nth-child(3) > .brand-discovery__button';
 
     lastSection = '.join-cta';
     lastSectionText = '.join-cta a';
@@ -61,11 +71,24 @@ export class Sample {
 
     iframeDialog = '.challenge-dialog__iframe';
 
-
-
-   // joinNowEmailField = '[for="email-or-phone"]';
     email = '#email-or-phone';
     pwd = '[for="password"]';
+
+    forgotPwd = '.footer-app-content-actions';
+    cancelForgotPwd = '.form__action';
+
+
+    extendedNav = '#extended-nav';
+    home = '#feed-nav-item';
+    myNetwork = '#mynetwork-nav-item';
+    jobsNav = '#jobs-nav-item';
+    messaging = '#messaging-nav-item';
+    notification = '#notifications-nav-item';
+    appLauncher = '#app-launcher-nav-item';
+
+
+
+
 
     verifyLinkedInLogo(){
         cy.visit('https://www.linkedin.com/');
@@ -124,6 +147,8 @@ export class Sample {
 
     checkLoginByEnteringDetails(){
         cy.visit('https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin');
+        cy.get(this.welcome)
+        .contains('Welcome Back');
         cy.get(this.username)
         .type('testing_robot@outlook.com')
         .should('have.value', 'testing_robot@outlook.com');
@@ -258,6 +283,7 @@ export class Sample {
         .contains('Please enter a more secure password.');
     }
 
+
     enterSameEmailAndPwd(){    //this uses same email but diff pwd
         cy.visit('https://www.linkedin.com/signup')
         cy.get(this.emailFieldText)
@@ -277,5 +303,51 @@ export class Sample {
         cy.get(this.sameEmailAlert)
         .should('be.visible')
         .contains('Someone’s already using that email.');
+    }
+
+    verifyCancellingForgotPwdTask(){
+        cy.visit('https://www.linkedin.com/login');
+        cy.get(this.forgotPwd)
+        .contains('Forgot password?')
+        .click()
+        cy.url('includes','https://www.linkedin.com/checkpoint/rp/request-password-reset');
+        cy.get(this.cancelForgotPwd)
+        .contains('Cancel')
+        .click()
+        cy.url('includes','https://www.linkedin.com/login');
+    }
+
+    seventhSectionLinkedIn(){
+        cy.visit('https://www.linkedin.com');
+        cy.get(this.seventhSection).scrollIntoView({duration:2000})
+        .should('be.visible');
+        cy.get(this.seventhSectionQuestion)
+        .contains('Who is LinkedIn for?');
+        cy.get(this.seventhSectionAnswer)
+        .contains('Anyone looking to navigate their professional life');
+        cy.get(this.seventhSectionFirstOption)
+        .contains('Find a coworker or classmate');
+        cy.get(this.seventhSectionSecondOption)
+        .contains('Find a new job');
+        cy.get(this.seventhSectionThirdOption)
+        .contains('Find a course or training');
+    }
+
+    verifyAfterLogin(){
+        this.checkLoginByEnteringDetails();
+        cy.get(this.extendedNav)
+        .should('be.visible');
+        cy.get(this.home)
+        .contains('Home');
+        cy.get(this.myNetwork)
+        .contains('My Network');
+        cy.get(this.jobsNav)
+        .contains('Jobs');
+        cy.get(this.messaging)
+        .contains('Messaging');
+        cy.get(this.notification)
+        .contains('Notifications');
+        cy.get(this.appLauncher)
+        .contains('Work');
     }
 }

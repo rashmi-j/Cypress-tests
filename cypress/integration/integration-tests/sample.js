@@ -57,6 +57,10 @@ describe('Sample tests using - LinkedIn', () => {
         sample.sixthSectionLinkedIn();
     })
 
+    it('seventh section', () => {
+        sample.seventhSectionLinkedIn();
+    })
+
 
     it('Last section', () => {
         sample.lastSectionLinkedIn();
@@ -74,7 +78,7 @@ describe('Sample tests using - LinkedIn', () => {
     })
 
 
-    xit('sign up page when same email is used', () => {
+    it('sign up page when same email is used', () => {
 
         // sample.enterSameEmailAndPwd();
         // sample.enterFirstNameAndLastName();
@@ -82,9 +86,9 @@ describe('Sample tests using - LinkedIn', () => {
 
         cy.visit('https://www.linkedin.com/signup')
         cy.get('[for="email-or-phone"]')
-        .type('testing_robot+4@outlook.com')
+        .type('testing_robot@outlook.com')
         cy.get('#email-or-phone')
-        .should('have.value', 'testing_robot+4@outlook.com');
+        .should('have.value', 'testing_robot@outlook.com');
         cy.get('[for="password"]')
         .type('password_2020')
         cy.get('#password')
@@ -132,6 +136,16 @@ describe('Sample tests using - LinkedIn', () => {
         .should('be.visible');
     })
 
+    it('check cancel button when trying to do forgot pwd', () => {
+        sample.verifyCancellingForgotPwdTask();
+
+    })
+
+    it('After login check few things', () => {
+        sample.verifyAfterLogin();
+
+    })
+    
 
 
  })
