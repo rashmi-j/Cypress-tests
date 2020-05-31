@@ -12,14 +12,14 @@ jobs:
           name: installing cypress framework      
           command: npm install cypress
   
-  add-dependency:                 #making add-dependency as another job
-    docker:
-      - image: circleci/node:12.13.0-stretch
-    steps:
-      - checkout
-      - run:
-          name: adding dependency
-          command: sudo apt-get install libgtk2.0-0 libgtk-3-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+  # add-dependency:                 #making add-dependency as another job
+  #   docker:
+  #     - image: circleci/node:12.13.0-stretch
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: adding dependency
+  #         command: sudo apt-get install libgtk2.0-0 libgtk-3-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
 
       - run:
           name: installing chrome
@@ -50,6 +50,6 @@ workflows:
   install-cypress:    
     jobs:
       - install-cypress
-      - add-dependency:                #making add-dependency job not to run untill install cypress runs
-          requires:
-            - install-cypress
+      # - add-dependency:                #making add-dependency job not to run untill install cypress runs
+      #     requires:
+      #       - install-cypress
