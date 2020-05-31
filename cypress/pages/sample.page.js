@@ -87,6 +87,32 @@ export class Sample {
     appLauncher = '#app-launcher-nav-item';
 
 
+    //Options under Me
+    memberName = '.nav-settings__member-name';
+    viewProfile = '.nav-settings__linkcard span';
+    account = '.nav-settings__dropdown-options--account h5';
+    settingsAndPrivacy = 'a#ember29.nav-settings__dropdown-item-link.block.t-black--light.t-bold.ember-view';
+    help = 'button.nav-settings__dropdown-item-link.nav-settings__dropdown-button-link.t-14.t-black--light.t-bold.block';
+    helpPopup = '[data-test-id="welcome-message-header"]';
+    //helpCloseButton = '#ember682 > .artdeco-button__icon > svg';
+    language = 'a#ember33.nav-settings__dropdown-item-link.block.t-black--light.t-bold.ember-view';
+    postsAndActivity = 'a#ember34.nav-settings__dropdown-item-link.nav-settings__manage-link.nav-settings__view-activity-link.block.t-black--light.t-bold.ember-view';
+    jobPostingAccount = 'a#ember36.nav-settings__dropdown-item-link.block.nav-settings__manage-link.t-black--light.t-bold.ember-view';
+
+    signout = 'a#ember38.nav-settings__dropdown-item-link.block.t-black--light.t-bold.ember-view';
+
+    launchPadArrow = '.artdeco-button__text > .v-align-middle > svg';
+
+    addWorkExperience = '#ember7332  > span';
+    launchPadtitle = '.launchpad__title';
+    findConnections = '#launchpad-cards.launchpad__cards.fl';
+    followHashTags = 'button#ember7339.launchpad-card__mini-cta.artdeco-button.artdeco-button--1.artdeco-button--tertiary.ember-view';
+
+    launchPadcards = '#launchpad-cards';
+
+    savedItems = '.feed-identity-module__anchored-widget';
+
+    growNetworks = '.entity-list';
 
 
 
@@ -349,5 +375,78 @@ export class Sample {
         .contains('Notifications');
         cy.get(this.appLauncher)
         .contains('Work');
+    }
+
+    verifyUrlOfNavBar(){
+        this.checkLoginByEnteringDetails();
+        cy.get(this.home) .click()
+        cy.url().should('eq','https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin');
+        cy.get(this.myNetwork).click()
+        cy.url().should('eq','https://www.linkedin.com/mynetwork/');
+        cy.get(this.jobsNav).click()
+        cy.url().should('eq','https://www.linkedin.com/jobs/');
+        cy.get(this.messaging).click()
+        cy.url().should('eq','https://www.linkedin.com/messaging/thread/6662047799661727744/');
+        cy.get(this.notification).click()
+        cy.url().should('eq','https://www.linkedin.com/notifications/');
+
+    }
+
+    verifyOptionsUnderMe() {
+        this.checkLoginByEnteringDetails();
+        cy.get(this.memberName)
+        .contains('Testing Robot');
+        cy.get(this.settingsAndPrivacy)
+        .contains('Settings & Privacy');
+        cy.get(this.help)
+        .contains('Help')
+        cy.get(this.help)
+        .click({force:true})
+        cy.get(this.helpPopup).should('be.visible')
+        .contains('Hi Testing, we’re here to help.');
+        // cy.get(this.helpCloseButton)
+        // cy.wait(4000)
+        // .should('be.visible')
+        // .click({force:true});
+        cy.get(this.language)
+        .contains('Language');
+        // .click({force:true})
+        // cy.url('includes','https://www.linkedin.com/psettings/select-language');
+        cy.get(this.postsAndActivity)
+        .contains('Posts & Activity');
+        cy.get(this.jobPostingAccount)
+        .contains('Job posting account');
+        cy.get(this.signout)
+        .contains('Sign out');
+    }
+
+    verifyOptionsInLaunchpad(){
+        this.checkLoginByEnteringDetails();
+        cy.get(this.launchPadArrow)
+        .click();
+        cy.get(this.launchPadtitle)
+        .contains('Testing, complete these steps to get the most out of LinkedIn:');
+        cy.get(this.launchPadcards)
+        .eq(0)
+        .contains('Add work experience');
+        cy.get(this.findConnections)
+        .eq(0)
+        .contains('Find connections');
+        // cy.get(this.followHashTags)
+        // cy.wait(2000)
+        // .eq(2)
+        // .contains('Follow hashtags');
+    }
+
+
+    verifySavedItemsAndGrowNetworksUrl(){
+        this.checkLoginByEnteringDetails();
+        cy.get(this.savedItems)
+        .eq(0)
+        .click();
+        cy.url('includes','https://www.linkedin.com/feed/saved/');
+        // cy.get(this.growNetworks)
+        // .click()
+        // cy.url('includes','https://www.linkedin.com/mynetwork/');
     }
 }

@@ -1,5 +1,6 @@
 import { Sample } from "../../pages/sample.page";
 
+
 describe('Sample tests using - LinkedIn', () => {
 
     const sample = new Sample();
@@ -144,6 +145,25 @@ describe('Sample tests using - LinkedIn', () => {
     it('After login check few things', () => {
         sample.verifyAfterLogin();
 
+    })
+
+    it('Verify urls of nav bar after clicking', () => {
+        sample.verifyUrlOfNavBar();
+
+    })
+
+    //23rd
+
+    it('After loging in check all options under Me', () => {
+        sample.verifyOptionsUnderMe();
+    })
+
+    it('Verify Launchpad options', ()=> {
+        sample.verifyOptionsInLaunchpad();
+    })
+
+    it('Verify saved items url', () => {
+        sample.verifySavedItemsAndGrowNetworksUrl();
     })
     
 

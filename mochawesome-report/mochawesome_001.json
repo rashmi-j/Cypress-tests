@@ -1,0 +1,104 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-05-31T11:38:39.944Z",
+    "end": "2020-05-31T11:38:43.937Z",
+    "duration": 3993,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2e1ff15c-ee5b-430a-aa52-1ff6e55a64d7",
+      "title": "",
+      "fullFile": "cypress/integration/sample1.js",
+      "file": "cypress/integration/sample1.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5fe804b3-f0c8-40fb-b674-f2da5b773d1b",
+          "title": "Pending tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "First section fields under jobs",
+              "fullTitle": "Pending tests First section fields under jobs",
+              "timedOut": null,
+              "duration": 1167,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://www.linkedin.com\");\nsample1.verifySearchJobs();",
+              "err": {},
+              "uuid": "ecc22571-4b09-4d1b-9b14-adb004169196",
+              "parentUUID": "5fe804b3-f0c8-40fb-b674-f2da5b773d1b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ecc22571-4b09-4d1b-9b14-adb004169196"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1167,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
