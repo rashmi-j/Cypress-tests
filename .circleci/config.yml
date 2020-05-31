@@ -28,8 +28,6 @@ jobs:
       - run:
           name: cypress task
           command: |
-            cd cypress &&
-            mkdir -p ~/sample_results &&
             npm install mocha mochawesome mochawesome-merge mochawesome-report-generator &&
             node_modules/.bin/cypress run --spec './cypress/integration/integration-tests/sample.js' --browser chrome
       - store_artifacts:
