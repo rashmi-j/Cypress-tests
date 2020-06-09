@@ -1,8 +1,8 @@
-import { Homepage} from "../../pages/Homepage"
+import { Signuppage} from "../../pages/Signuppage"
 
 describe('Sign up page - linkedIn', () => {
 
-    const signup = new Homepage();
+    const signup = new Signuppage();
 
     it('Login to page by adding details', () => {
         signup.checkLoginByEnteringDetails();
