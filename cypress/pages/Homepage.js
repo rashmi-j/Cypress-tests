@@ -1,4 +1,4 @@
-export class Sample {
+export class Homepage {
     //constructor() { }
 
     linkedin = '.linkedin-text';

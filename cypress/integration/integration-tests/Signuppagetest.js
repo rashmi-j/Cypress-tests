@@ -1,81 +1,22 @@
-import { Sample } from "../../pages/sample.page";
+import { Homepage} from "../../pages/Homepage"
 
+describe('Sign up page - linkedIn', () => {
 
-describe('Sample tests using - LinkedIn', () => {
-
-    const sample = new Sample();
-    //cy.visit('https://www.linkedin.com');
-
-    it('LinkedIn page', () => {
-        sample.verifyLinkedInLogo();
-    })
-
-
-    it('Verify Join now and url after clicking it',() => {
-        sample.verifyText();
-        sample.verifyText1();
-        sample.verifyText2();
-    })
-
-
-    it('Verify Sign in and url after clicking it',() => {
-        sample.verifySignInUrl();
-    })
-
-
-    it('Verify different data switcher',() => {
-        sample.verifySwitches();
-    })
-
-
-    it('Verify sign in fields',() => {
-        sample.verifySignInFields();
-    })
-
+    const signup = new Homepage();
 
     it('Login to page by adding details', () => {
-        sample.checkLoginByEnteringDetails();
+        signup.checkLoginByEnteringDetails();
     }) 
-
-    it("View the footer of linkedIn", () => {
-        sample.checkFooter();
-
-    })
-
-    it("Check the second section in Home page", () => {
-        sample.secondSectionLinkedIn();
-    })
-
-    it("check the third section", () => {
-        sample.thirdSectionLinkedIn();
-    })
-
-    it("check the 4th section", () => {
-        sample.fourthSectionLinkedIn();
-    })
-
-    it("check the 6th section", () => {
-        sample.sixthSectionLinkedIn();
-    })
-
-    it('seventh section', () => {
-        sample.seventhSectionLinkedIn();
-    })
-
-
-    it('Last section', () => {
-        sample.lastSectionLinkedIn();
-    })
 
 
     it('Join now', () => {
-        sample.joinNowLinkedIn();
+        signup.joinNowLinkedIn();
     })
 
     it('Sign up page when given weak password', () => {
-        sample.enterEmailAndPwd();
-        sample.enterFirstNameAndLastName();
-        sample.checkWeakPwdAlert();
+        signup.enterEmailAndPwd();
+        signup.enterFirstNameAndLastName();
+        signup.checkWeakPwdAlert();
     })
 
 
@@ -138,34 +79,8 @@ describe('Sample tests using - LinkedIn', () => {
     })
 
     it('check cancel button when trying to do forgot pwd', () => {
-        sample.verifyCancellingForgotPwdTask();
+        signup.verifyCancellingForgotPwdTask();
 
     })
 
-    it('After login check few things', () => {
-        sample.verifyAfterLogin();
-
-    })
-
-    it('Verify urls of nav bar after clicking', () => {
-        sample.verifyUrlOfNavBar();
-
-    })
-
-    //23rd
-
-    it('After loging in check all options under Me', () => {
-        sample.verifyOptionsUnderMe();
-    })
-
-    it('Verify Launchpad options', ()=> {
-        sample.verifyOptionsInLaunchpad();
-    })
-
-    it('Verify saved items url', () => {
-        sample.verifySavedItemsAndGrowNetworksUrl();
-    })
-    
-
-
- })
+})
