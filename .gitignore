@@ -1,1 +1,10 @@
 node_modules
+
+#misc
+.DS_Store
+
+
+#cypress videos
+/cypress/videos/*
+/cypress/screenshots/*
+
