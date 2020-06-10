@@ -29,7 +29,7 @@ jobs:
           name: cypress task
           command: |
             npm install mocha mochawesome mochawesome-merge mochawesome-report-generator &&
-            node_modules/.bin/cypress run --spec './cypress/integration/integration-tests/sample.js' --browser chrome --reporter-options reportDir=~/mochawesome-report
+            node_modules/.bin/cypress run --spec './cypress/integration/integration-tests/index.js' --browser chrome --reporter-options reportDir=~/mochawesome-report
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
