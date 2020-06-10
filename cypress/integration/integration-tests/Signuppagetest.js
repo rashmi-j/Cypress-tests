@@ -8,10 +8,14 @@ describe('Sign up page - linkedIn', () => {
         signup.checkLoginByEnteringDetails();
     }) 
 
+    it('Verify sign in fields',() => {
+        signup.verifySignInFields();
+    })
 
     it('Join now', () => {
         signup.joinNowLinkedIn();
     })
+
 
     it('Sign up page when given weak password', () => {
         signup.enterEmailAndPwd();

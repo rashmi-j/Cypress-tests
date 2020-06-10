@@ -26,6 +26,16 @@ export class Signuppage {
 
     forgotPwd = '.footer-app-content-actions';
     cancelForgotPwd = '.form__action';
+
+    verifySignInFields(){
+        cy.visit('https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin');
+        cy.get(this.username)
+        .should('have','Email or Phone');
+        cy.get(this.password)
+        .should('have','Password');
+        cy.get(this.signinButton)
+        .contains('Sign in');
+    }
     
 
     checkLoginByEnteringDetails(){

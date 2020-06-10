@@ -9,6 +9,8 @@ export class Homepage {
     people = '[data-searchbar-type="PEOPLE"]';
     learning = '[data-switcher-type="LEARNING"]';
 
+    signinButton = '.login__form_action_container';
+
     //welcome = '.header__content';
 
     footer = '.li-footer';
@@ -257,84 +259,84 @@ export class Homepage {
         .contains('Find a course or training');
     }
 
-    verifyAfterLogin(){
-        this.checkLoginByEnteringDetails();
-        cy.get(this.extendedNav)
-        .should('be.visible');
-        cy.get(this.home)
-        .contains('Home');
-        cy.get(this.myNetwork)
-        .contains('My Network');
-        cy.get(this.jobsNav)
-        .contains('Jobs');
-        cy.get(this.messaging)
-        .contains('Messaging');
-        cy.get(this.notification)
-        .contains('Notifications');
-        cy.get(this.appLauncher)
-        .contains('Work');
-    }
+    // verifyAfterLogin(){
+    //     this.checkLoginByEnteringDetails();
+    //     cy.get(this.extendedNav)
+    //     .should('be.visible');
+    //     cy.get(this.home)
+    //     .contains('Home');
+    //     cy.get(this.myNetwork)
+    //     .contains('My Network');
+    //     cy.get(this.jobsNav)
+    //     .contains('Jobs');
+    //     cy.get(this.messaging)
+    //     .contains('Messaging');
+    //     cy.get(this.notification)
+    //     .contains('Notifications');
+    //     cy.get(this.appLauncher)
+    //     .contains('Work');
+    // }
 
-    verifyUrlOfNavBar(){
-        this.checkLoginByEnteringDetails();
-        cy.get(this.home) .click()
-        cy.url().should('eq','https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin');
-        cy.get(this.myNetwork).click()
-        cy.url().should('eq','https://www.linkedin.com/mynetwork/');
-        cy.get(this.jobsNav).click()
-        cy.url().should('eq','https://www.linkedin.com/jobs/');
-        cy.get(this.messaging).click()
-        cy.url().should('eq','https://www.linkedin.com/messaging/thread/6662047799661727744/');
-        cy.get(this.notification).click()
-        cy.url().should('eq','https://www.linkedin.com/notifications/');
+    // verifyUrlOfNavBar(){
+    //     this.checkLoginByEnteringDetails();
+    //     cy.get(this.home) .click()
+    //     cy.url().should('eq','https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin');
+    //     cy.get(this.myNetwork).click()
+    //     cy.url().should('eq','https://www.linkedin.com/mynetwork/');
+    //     cy.get(this.jobsNav).click()
+    //     cy.url().should('eq','https://www.linkedin.com/jobs/');
+    //     cy.get(this.messaging).click()
+    //     cy.url().should('eq','https://www.linkedin.com/messaging/thread/6662047799661727744/');
+    //     cy.get(this.notification).click()
+    //     cy.url().should('eq','https://www.linkedin.com/notifications/');
 
-    }
+    // }
 
-    verifyOptionsUnderMe() {
-        this.checkLoginByEnteringDetails();
-        cy.get(this.memberName)
-        .contains('Testing Robot');
-        cy.get(this.settingsAndPrivacy)
-        .contains('Settings & Privacy');
-        cy.get(this.help)
-        .contains('Help')
-        cy.get(this.help)
-        .click({force:true})
-        cy.get(this.helpPopup).should('be.visible')
-        .contains('Hi Testing, we’re here to help.');
-        // cy.get(this.helpCloseButton)
-        // cy.wait(4000)
-        // .should('be.visible')
-        // .click({force:true});
-        cy.get(this.language)
-        .contains('Language');
-        // .click({force:true})
-        // cy.url('includes','https://www.linkedin.com/psettings/select-language');
-        cy.get(this.postsAndActivity)
-        .contains('Posts & Activity');
-        cy.get(this.jobPostingAccount)
-        .contains('Job posting account');
-        cy.get(this.signout)
-        .contains('Sign out');
-    }
+    // verifyOptionsUnderMe() {
+    //     this.checkLoginByEnteringDetails();
+    //     cy.get(this.memberName)
+    //     .contains('Testing Robot');
+    //     cy.get(this.settingsAndPrivacy)
+    //     .contains('Settings & Privacy');
+    //     cy.get(this.help)
+    //     .contains('Help')
+    //     cy.get(this.help)
+    //     .click({force:true})
+    //     cy.get(this.helpPopup).should('be.visible')
+    //     .contains('Hi Testing, we’re here to help.');
+    //     // cy.get(this.helpCloseButton)
+    //     // cy.wait(4000)
+    //     // .should('be.visible')
+    //     // .click({force:true});
+    //     cy.get(this.language)
+    //     .contains('Language');
+    //     // .click({force:true})
+    //     // cy.url('includes','https://www.linkedin.com/psettings/select-language');
+    //     cy.get(this.postsAndActivity)
+    //     .contains('Posts & Activity');
+    //     cy.get(this.jobPostingAccount)
+    //     .contains('Job posting account');
+    //     cy.get(this.signout)
+    //     .contains('Sign out');
+    // }
 
-    verifyOptionsInLaunchpad(){
-        this.checkLoginByEnteringDetails();
-        cy.get(this.launchPadArrow)
-        .click();
-        cy.get(this.launchPadtitle)
-        .contains('Testing, complete these steps to get the most out of LinkedIn:');
-        cy.get(this.launchPadcards)
-        .eq(0)
-        .contains('Add work experience');
-        cy.get(this.findConnections)
-        .eq(0)
-        .contains('Find connections');
-        // cy.get(this.followHashTags)
-        // cy.wait(2000)
-        // .eq(2)
-        // .contains('Follow hashtags');
-    }
+    // verifyOptionsInLaunchpad(){
+    //     this.checkLoginByEnteringDetails();
+    //     cy.get(this.launchPadArrow)
+    //     .click();
+    //     cy.get(this.launchPadtitle)
+    //     .contains('Testing, complete these steps to get the most out of LinkedIn:');
+    //     cy.get(this.launchPadcards)
+    //     .eq(0)
+    //     .contains('Add work experience');
+    //     cy.get(this.findConnections)
+    //     .eq(0)
+    //     .contains('Find connections');
+    //     // cy.get(this.followHashTags)
+    //     // cy.wait(2000)
+    //     // .eq(2)
+    //     // .contains('Follow hashtags');
+    // }
 
 
     verifySavedItemsAndGrowNetworksUrl(){
