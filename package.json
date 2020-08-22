@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/rashmi-j/Cypress-tests#readme",
   "devDependencies": {
-    "cypress": "^4.6.0",
+    "cypress": "^5.0.0",
     "mocha": "^7.2.0",
     "mochawesome": "^6.1.1"
   }
